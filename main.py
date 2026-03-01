@@ -1,19 +1,16 @@
-import tkinter as tk # isso é p n ficar escrevendo tkinter toda hora
-from tkinter import messagebox # para mostrar mensagens de erro ou sucesso (popups/alertas)
-from database import criar_banco # para criar o banco de dados e a tabela de usuários, que cria o banco no database.py
-from auth import cadastrar_usuario, verificar_login # para cadastrar novos usuários e verificar o login, que tem as funções de cadastro e login no auth.py
+import tkinter as tk
+from tkinter import messagebox 
+from database import criar_banco 
+from auth import cadastrar_usuario, verificar_login 
 
 tentativas = 0
-# cria o banco antes de iniciar a interface, para garantir que ele exista quando o usuário tentar se cadastrar ou entrar.
-# se o banco ainda não existir, ele é criado automaticamente
-# se já existir, nada acontece (por causa do IF NOT EXISTS no SQL)
+
 criar_banco()
 
-def entrar(): # função que é chamada quando o usuário clica no botão "Entrar"
-    global tentativas
+def entrar(): 
 
-    usuario = entry_usuario.get() # pega o texto que o usuário digitou no campo de usuário
-    senha = entry_senha.get() # pega o texto que o usuário digitou no campo de senha
+    usuario = entry_usuario.get() 
+    senha = entry_senha.get()
 
     resultado = verificar_login(usuario, senha)
    
@@ -63,7 +60,7 @@ janela.title("Tela de Login")
 janela.geometry("350x250")
 janela.configure(bg="#f5f5f5")
 
-frame = tk.Frame(janela, bg="#ffffff", padx=20, pady=20) # cria um frame branco dentro da janela, com um pouco de padding (espaçamento interno) para deixar os elementos mais organizados
+frame = tk.Frame(janela, bg="#ffffff", padx=20, pady=20) 
 frame.place(relx=0.5, rely=0.5, anchor="center")
 
 tk.Label(frame, text="Login", font=("Helvetica", 16, "bold"), bg="#ffffff").grid(
@@ -85,5 +82,6 @@ tk.Button(frame, text="Entrar", bg="#4CAF50", fg="white", command=entrar).grid(
 tk.Button(frame, text="Cadastrar", command=cadastrar).grid(
     row=4, column=0, columnspan=2
 )
+
 
 janela.mainloop()
