@@ -113,6 +113,6 @@ Muitas tentativas! Sistema bloqueado.
 
 ---
 
-## 👩🏻‍💻 Author
+## 👩🏻‍💻 Autora
 
 Tatiane Souza  
